@@ -1,1 +1,1 @@
-This is a repository to demonstrate a oomph targlet resolution bug
+This is a repository to demonstrate an oomph targlet resolution bug

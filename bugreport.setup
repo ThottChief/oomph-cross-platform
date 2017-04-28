@@ -16,7 +16,7 @@
 <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.test"
-      remoteURI="ThottChief/oomph-cross-platform">
+      remoteURI="lbeurerkellner/oomph-cross-platform">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail

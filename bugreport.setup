@@ -4,19 +4,15 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
-    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
-    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
-    xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
     name="bugreport"
     label="BugReport">
-<setupTask
+  <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.test"
-      remoteURI="ThottChief/oomph-cross-platform">
+      remoteURI="lbeurerkellner/oomph-cross-platform">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -40,7 +36,7 @@
     </configSections>
     <description>${scope.project.label}</description>
   </setupTask>
-<setupTask
+  <setupTask
       xsi:type="setup.targlets:TargletTask"
       locale="en"
       vmArguments="-Xmx4g&#xA;-Xmx4g">
@@ -49,7 +45,7 @@
         activeRepositoryList="Test">
       <annotation
           source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-       <detail
+        <detail
             key="extraUnits">
           <value>org.eclipse.equinox.executable.feature.group</value>
         </detail>
@@ -73,37 +69,26 @@
             key="generateVersions">
           <value>true</value>
         </detail>
-	<detail
+        <detail
             key="location">
           <value>${git.clone.test.location/bugreport.project/TP.target}</value>
         </detail>
-
       </annotation>
       <requirement
           name="*"/>
       <sourceLocator
           rootFolder="${git.clone.test.location}"
-          locateNestedProjects="true">
-        <predicate
-            xsi:type="predicates:NotPredicate">
-          <operand
-              xsi:type="predicates:OrPredicate">
-            <operand
-                xsi:type="predicates:NamePredicate"
-                pattern="TestPrj"/>
-          </operand>
-        </predicate>
-      </sourceLocator>
+          locateNestedProjects="true"/>
       <repositoryList
           name="Test">
-       <repository
+        <repository
             url="http://download.eclipse.org/eclipse/updates/4.6/R-4.6.2-201611241400"/>
-       <repository
+        <repository
             url="https://resheim.net/p2/eclipse-launcher/"/>
       </repositoryList>
     </targlet>
   </setupTask>
- <stream name="master"
+  <stream name="master"
       label="Master"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

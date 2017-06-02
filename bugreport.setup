@@ -42,7 +42,8 @@
       vmArguments="-Xmx4g&#xA;-Xmx4g">
     <targlet
         name="ReproduceBug"
-        activeRepositoryList="Test">
+        activeRepositoryList="Test"
+        includeAllPlatforms="true">
       <annotation
           source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
         <detail
